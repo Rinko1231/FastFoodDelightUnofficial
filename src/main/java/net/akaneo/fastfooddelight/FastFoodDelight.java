@@ -1,10 +1,12 @@
 package net.akaneo.fastfooddelight;
 
 import com.mojang.logging.LogUtils;
+import net.akaneo.fastfooddelight.common.Config.FFConfiguration;
 import net.akaneo.fastfooddelight.common.registry.FFBlocks;
 import net.akaneo.fastfooddelight.common.registry.FFItems;
 import net.akaneo.fastfooddelight.common.registry.FFVillagers;
 import net.akaneo.fastfooddelight.common.registry.TabInit;
+import net.akaneo.fastfooddelight.common.world.FFVillageStructures;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.CreativeModeTab;
@@ -13,15 +15,17 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import vectorwing.farmersdelight.common.world.VillageStructures;
-
 import javax.annotation.Nonnull;
+
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(FastFoodDelight.MODID)
@@ -43,13 +47,16 @@ public class FastFoodDelight
         FFVillagers.register(modEventBus);
         TabInit.TABS.register(modEventBus);
 
-        MinecraftForge.EVENT_BUS.addListener(VillageStructures::addNewVillageBuilding);
+        MinecraftForge.EVENT_BUS.addListener(FFVillageStructures::addNewVillageBuilding);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+        FFConfiguration.setup();
+
+
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {
