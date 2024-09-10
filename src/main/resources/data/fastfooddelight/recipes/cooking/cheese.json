@@ -1,0 +1,12 @@
+{
+  "type": "farmersdelight:cooking",
+  "ingredients": [
+    {
+      "item": "minecraft:milk_bucket"
+    }
+  ],
+  "result": {
+    "item": "fastfooddelight:cheese"
+  },
+  "cookingtime": 200
+}
