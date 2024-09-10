@@ -32,7 +32,7 @@
   "item.fastfooddelight.fruit_ice_cream": "Fruit Ice Cream",
   "item.fastfooddelight.apple_sauce": "Apple Sauce",
 
-  "itemGroup.fastfooddelight": "FastFood Delight",
+  "item_group.fastfooddelight": "FastFood Delight",
 
   "entity.minecraft.villager.fastfooddelight.fast_food_waiter": "Fast Food Waiter"
 }
