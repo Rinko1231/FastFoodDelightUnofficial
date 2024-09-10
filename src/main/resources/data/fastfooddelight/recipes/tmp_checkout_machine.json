@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "D": {
+      "item": "minecraft:iron_ingot"
+    },
+    "O": {
+      "item": "minecraft:emerald"
+    }
+  },
+  "pattern": [
+    "DOD",
+    " D "
+  ],
+  "result": {
+    "item": "fastfooddelight:checkout_machine"
+  }
+}
