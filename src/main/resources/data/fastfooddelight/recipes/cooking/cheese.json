@@ -5,7 +5,9 @@
       "item": "minecraft:milk_bucket"
     }
   ],
+  "recipe_book_tab": "misc",
   "result": {
+    "count": 8,
     "item": "fastfooddelight:cheese"
   },
   "cookingtime": 200
