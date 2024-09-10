@@ -48,6 +48,7 @@ public class FFItems extends ModItems {
     public static final RegistryObject<Item> FRENCH_FRIES;
     public static final RegistryObject<Item> CARROT_FRIES;
     public static final RegistryObject<Item> FRIED_ONIONS;
+    public static final RegistryObject<Item> BEET_FRIES;
 
     public static final RegistryObject<Item> COD_SANDWICH;
     public static final RegistryObject<Item> SALMON_SANDWICH;
@@ -99,6 +100,9 @@ public class FFItems extends ModItems {
             return new ConsumableItem(foodItem(FFFoodValues.FRIES).craftRemainder(FFItems.FRIES_BOWL.get()));
         });
         FRIED_ONIONS = ITEMS.register("fried_onions", () -> {
+            return new ConsumableItem(foodItem(FFFoodValues.FRIES).craftRemainder(FFItems.FRIES_BOWL.get()));
+        });
+        BEET_FRIES = ITEMS.register("beet_fries", () -> {
             return new ConsumableItem(foodItem(FFFoodValues.FRIES).craftRemainder(FFItems.FRIES_BOWL.get()));
         });
 

@@ -23,8 +23,8 @@ public class FFConfiguration
                 .define("Generate Structures", true);
 
         StructureWeight = BUILDER
-                .comment("Fast Food Shop Structure Weight, max is 25")
-                .defineInRange("Structure Weight", 10, 0, 25);
+                .comment("Fast Food Shop Structure Weight, max is 50")
+                .defineInRange("Structure Weight", 25, 0, 50);
 
         SPEC = BUILDER.build();
     }
