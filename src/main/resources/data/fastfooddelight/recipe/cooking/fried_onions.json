@@ -1,0 +1,19 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "count": 1,
+    "id": "fastfooddelight:fries_bowl"
+  },
+  "cookingtime": 200,
+  "experience": 1.5,
+  "ingredients": [
+    {
+      "tag": "c:crops/onion"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "count": 1,
+    "id": "fastfooddelight:fried_onions"
+  }
+}

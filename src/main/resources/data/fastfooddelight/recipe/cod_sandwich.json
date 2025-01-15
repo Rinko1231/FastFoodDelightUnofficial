@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "c:foods/bread"
+    },
+    {
+      "item": "farmersdelight:cooked_cod_slice"
+    }
+  ],
+  "result": {
+    "id": "fastfooddelight:cod_sandwich"
+  }
+}

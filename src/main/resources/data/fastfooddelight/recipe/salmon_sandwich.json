@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "c:foods/bread"
+    },
+    {
+      "item": "farmersdelight:cooked_salmon_slice"
+    }
+  ],
+  "result": {
+    "id": "fastfooddelight:salmon_sandwich"
+  }
+}
