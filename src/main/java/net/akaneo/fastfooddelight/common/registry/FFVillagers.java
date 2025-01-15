@@ -1,44 +1,54 @@
 package net.akaneo.fastfooddelight.common.registry;
 import com.google.common.collect.ImmutableSet;
 import net.akaneo.fastfooddelight.FastFoodDelight;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.VillagerProfession;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
-import java.lang.reflect.InvocationTargetException;
+import java.util.Objects;
+import java.util.Set;
+import java.util.function.Supplier;
 
 public class FFVillagers {
-    public static final DeferredRegister<PoiType> POI_TYPES =
-            DeferredRegister.create(ForgeRegistries.POI_TYPES, FastFoodDelight.MODID);
-    public static final DeferredRegister<VillagerProfession> VILLAGER_PROFESSIONS =
-            DeferredRegister.create(ForgeRegistries.VILLAGER_PROFESSIONS, FastFoodDelight.MODID);
-
-    public static final RegistryObject<PoiType> CHECKOUT_MACHINE_POI = POI_TYPES.register("checkout_machine_poi",
-            () -> new PoiType(ImmutableSet.copyOf(FFBlocks.CHECKOUT_MACHINE.get().getStateDefinition().getPossibleStates()),
-                    1, 1));
-
-    public static final RegistryObject<VillagerProfession> FAST_FOOD_WAITER = VILLAGER_PROFESSIONS.register("fast_food_waiter",
-            () -> new VillagerProfession("fast_food_waiter", x -> x.get() == CHECKOUT_MACHINE_POI.get(),
-                    x -> x.get() == CHECKOUT_MACHINE_POI.get(), ImmutableSet.of(), ImmutableSet.of(),
-                    SoundEvents.VILLAGER_WORK_BUTCHER));
-
-
-    public static void registerPOIs() {
-        try {
-            ObfuscationReflectionHelper.findMethod(PoiType.class,
-                    "registerBlockStates", PoiType.class).invoke(null, CHECKOUT_MACHINE_POI.get());
-        } catch (InvocationTargetException | IllegalAccessException exception) {
-            exception.printStackTrace();
-        }
+    public static ResourceLocation RL(String path) {
+        return ResourceLocation.fromNamespaceAndPath(FastFoodDelight.MODID, path);
     }
 
-    public static void register(IEventBus eventBus) {
-        POI_TYPES.register(eventBus);
-        VILLAGER_PROFESSIONS.register(eventBus);
+    public static final DeferredRegister<PoiType> POI
+            = DeferredRegister.create(Registries.POINT_OF_INTEREST_TYPE, FastFoodDelight.MODID);
+    public static final DeferredRegister<VillagerProfession> PROFESSIONS
+            = DeferredRegister.create(Registries.VILLAGER_PROFESSION, FastFoodDelight.MODID);
+
+    public static final DeferredHolder<PoiType, PoiType> CHECKOUT_MACHINE_POI
+            = POI.register("checkout_machine_poi", () -> new PoiType(getAllStates(FFBlocks.CHECKOUT_MACHINE.get()), 1, 1));
+    public static final Supplier<VillagerProfession> FAST_FOOD_WAITER
+            = registerProfession("fast_food_waiter", FFVillagers.CHECKOUT_MACHINE_POI, SoundEvents.VILLAGER_WORK_BUTCHER);
+
+    @SuppressWarnings("SameParameterValue")
+    private static Supplier<VillagerProfession> registerProfession(String name, DeferredHolder<PoiType, PoiType> poiType, SoundEvent sound) {
+        return PROFESSIONS.register(name, () -> register(RL(name), poiType, sound));
     }
+
+    private static VillagerProfession register(ResourceLocation name, DeferredHolder<PoiType, PoiType> poi, SoundEvent sound) {
+        ResourceKey<PoiType> poiName = Objects.requireNonNull(poi.getKey());
+        return new VillagerProfession(
+                name.toString(), holder -> holder.is(poiName), holder -> holder.is(poiName),
+                ImmutableSet.of(), ImmutableSet.of(), sound
+        );
+    }
+
+    private static Set<BlockState> getAllStates(Block block) {
+        return ImmutableSet.copyOf(block.getStateDefinition().getPossibleStates());
+    }
+
+
+
 }

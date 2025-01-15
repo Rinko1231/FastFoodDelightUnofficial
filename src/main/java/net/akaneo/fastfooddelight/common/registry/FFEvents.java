@@ -5,17 +5,22 @@ import net.akaneo.fastfooddelight.FastFoodDelight;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
-import net.minecraftforge.event.village.VillagerTradesEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.village.VillagerTradesEvent;
 import vectorwing.farmersdelight.common.registry.ModItems;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 
+@EventBusSubscriber(modid = FastFoodDelight.MODID)
+@ParametersAreNonnullByDefault
 public class FFEvents {
-    @Mod.EventBusSubscriber(modid = FastFoodDelight.MODID)
-    public static class ForgeEvents {
+
+
         @SubscribeEvent
         public static void addCustomTrades(VillagerTradesEvent event) {
 
@@ -26,7 +31,7 @@ public class FFEvents {
                 int villagerLevel = 1;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 3),
+                        new ItemCost(Items.GOLD_NUGGET, 3),
                         stack, 10, 5, 0.0F));
             }
             if (event.getType() == FFVillagers.FAST_FOOD_WAITER.get()) {
@@ -35,7 +40,7 @@ public class FFEvents {
                 int villagerLevel = 1;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 3),
+                        new ItemCost(Items.GOLD_NUGGET, 3),
                         stack, 10, 5, 0.0F));
             }
             if (event.getType() == FFVillagers.FAST_FOOD_WAITER.get()) {
@@ -44,7 +49,7 @@ public class FFEvents {
                 int villagerLevel = 1;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 3),
+                        new ItemCost(Items.GOLD_NUGGET, 3),
                         stack, 10, 5, 0.0F));
             }
             if (event.getType() == FFVillagers.FAST_FOOD_WAITER.get()) {
@@ -53,7 +58,7 @@ public class FFEvents {
                 int villagerLevel = 1;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 4),
+                        new ItemCost(Items.GOLD_NUGGET, 4),
                         stack, 10, 5, 0.0F));
             }
 
@@ -64,7 +69,7 @@ public class FFEvents {
                 int villagerLevel = 2;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 4),
+                        new ItemCost(Items.GOLD_NUGGET, 4),
                         stack, 10, 5, 0.0F));
             }
             if (event.getType() == FFVillagers.FAST_FOOD_WAITER.get()) {
@@ -73,7 +78,7 @@ public class FFEvents {
                 int villagerLevel = 2;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 4),
+                        new ItemCost(Items.GOLD_NUGGET, 4),
                         stack, 10, 5, 0.0F));
             }
             if (event.getType() == FFVillagers.FAST_FOOD_WAITER.get()) {
@@ -82,7 +87,7 @@ public class FFEvents {
                 int villagerLevel = 2;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 4),
+                        new ItemCost(Items.GOLD_NUGGET, 4),
                         stack, 10, 5, 0.0F));
             }
 
@@ -93,7 +98,7 @@ public class FFEvents {
                 int villagerLevel = 2;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 5),
+                        new ItemCost(Items.GOLD_NUGGET, 5),
                         stack, 10, 5, 0.0F));
             }
             if (event.getType() == FFVillagers.FAST_FOOD_WAITER.get()) {
@@ -102,7 +107,7 @@ public class FFEvents {
                 int villagerLevel = 2;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 5),
+                        new ItemCost(Items.GOLD_NUGGET, 5),
                         stack, 10, 5, 0.0F));
             }
             if (event.getType() == FFVillagers.FAST_FOOD_WAITER.get()) {
@@ -111,7 +116,7 @@ public class FFEvents {
                 int villagerLevel = 2;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 5),
+                        new ItemCost(Items.GOLD_NUGGET, 5),
                         stack, 10, 5, 0.0F));
             }
             if (event.getType() == FFVillagers.FAST_FOOD_WAITER.get()) {
@@ -120,7 +125,7 @@ public class FFEvents {
                 int villagerLevel = 2;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 5),
+                        new ItemCost(Items.GOLD_NUGGET, 5),
                         stack, 10, 5, 0.0F));
             }
             if (event.getType() == FFVillagers.FAST_FOOD_WAITER.get()) {
@@ -129,7 +134,7 @@ public class FFEvents {
                 int villagerLevel = 2;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 5),
+                        new ItemCost(Items.GOLD_NUGGET, 5),
                         stack, 10, 5, 0.0F));
             }
             if (event.getType() == FFVillagers.FAST_FOOD_WAITER.get()) {
@@ -138,7 +143,7 @@ public class FFEvents {
                 int villagerLevel = 2;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 5),
+                        new ItemCost(Items.GOLD_NUGGET, 5),
                         stack, 10, 5, 0.0F));
             }
             if (event.getType() == FFVillagers.FAST_FOOD_WAITER.get()) {
@@ -147,7 +152,7 @@ public class FFEvents {
                 int villagerLevel = 2;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 3),
+                        new ItemCost(Items.GOLD_NUGGET, 3),
                         stack, 10, 5, 0.0F));
             }
 
@@ -158,7 +163,7 @@ public class FFEvents {
                 int villagerLevel = 3;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 6),
+                        new ItemCost(Items.GOLD_NUGGET, 6),
                         stack, 10, 5, 0.0F));
             }
             if (event.getType() == FFVillagers.FAST_FOOD_WAITER.get()) {
@@ -167,7 +172,7 @@ public class FFEvents {
                 int villagerLevel = 3;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 6),
+                        new ItemCost(Items.GOLD_NUGGET, 6),
                         stack, 10, 5, 0.0F));
             }
             if (event.getType() == FFVillagers.FAST_FOOD_WAITER.get()) {
@@ -176,7 +181,7 @@ public class FFEvents {
                 int villagerLevel = 3;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 7),
+                        new ItemCost(Items.GOLD_NUGGET, 7),
                         stack, 10, 5, 0.0F));
             }
             if (event.getType() == FFVillagers.FAST_FOOD_WAITER.get()) {
@@ -185,7 +190,7 @@ public class FFEvents {
                 int villagerLevel = 3;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 7),
+                        new ItemCost(Items.GOLD_NUGGET, 7),
                         stack, 10, 5, 0.0F));
             }
             if (event.getType() == FFVillagers.FAST_FOOD_WAITER.get()) {
@@ -194,7 +199,7 @@ public class FFEvents {
                 int villagerLevel = 3;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 6),
+                        new ItemCost(Items.GOLD_NUGGET, 6),
                         stack, 10, 5, 0.0F));
             }
 
@@ -205,7 +210,7 @@ public class FFEvents {
                 int villagerLevel = 4;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 2),
+                        new ItemCost(Items.GOLD_NUGGET, 2),
                         stack, 10, 5, 0.0F));
             }
             if (event.getType() == FFVillagers.FAST_FOOD_WAITER.get()) {
@@ -214,7 +219,7 @@ public class FFEvents {
                 int villagerLevel = 4;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 2),
+                        new ItemCost(Items.GOLD_NUGGET, 2),
                         stack, 10, 5, 0.0F));
             }
             if (event.getType() == FFVillagers.FAST_FOOD_WAITER.get()) {
@@ -223,7 +228,7 @@ public class FFEvents {
                 int villagerLevel = 4;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 2),
+                        new ItemCost(Items.GOLD_NUGGET, 2),
                         stack, 10, 5, 0.0F));
             }
             if (event.getType() == FFVillagers.FAST_FOOD_WAITER.get()) {
@@ -232,7 +237,7 @@ public class FFEvents {
                 int villagerLevel = 4;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 2),
+                        new ItemCost(Items.GOLD_NUGGET, 2),
                         stack, 10, 5, 0.0F));
             }
             if (event.getType() == FFVillagers.FAST_FOOD_WAITER.get()) {
@@ -241,7 +246,7 @@ public class FFEvents {
                 int villagerLevel = 4;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 2),
+                        new ItemCost(Items.GOLD_NUGGET, 2),
                         stack, 10, 5, 0.0F));
             }
 
@@ -252,7 +257,7 @@ public class FFEvents {
                 int villagerLevel = 5;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 3),
+                        new ItemCost(Items.GOLD_NUGGET, 3),
                         stack, 10, 5, 0.0F));
             }
             if (event.getType() == FFVillagers.FAST_FOOD_WAITER.get()) {
@@ -261,7 +266,7 @@ public class FFEvents {
                 int villagerLevel = 5;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 4),
+                        new ItemCost(Items.GOLD_NUGGET, 4),
                         stack, 10, 5, 0.0F));
             }
             if (event.getType() == FFVillagers.FAST_FOOD_WAITER.get()) {
@@ -270,7 +275,7 @@ public class FFEvents {
                 int villagerLevel = 5;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 4),
+                        new ItemCost(Items.GOLD_NUGGET, 4),
                         stack, 10, 5, 0.0F));
             }
             if (event.getType() == FFVillagers.FAST_FOOD_WAITER.get()) {
@@ -279,7 +284,7 @@ public class FFEvents {
                 int villagerLevel = 5;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 4),
+                        new ItemCost(Items.GOLD_NUGGET, 4),
                         stack, 10, 5, 0.0F));
             }
             if (event.getType() == FFVillagers.FAST_FOOD_WAITER.get()) {
@@ -288,7 +293,7 @@ public class FFEvents {
                 int villagerLevel = 5;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 3),
+                        new ItemCost(Items.GOLD_NUGGET, 3),
                         stack, 10, 5, 0.0F));
             }
             if (event.getType() == FFVillagers.FAST_FOOD_WAITER.get()) {
@@ -297,9 +302,8 @@ public class FFEvents {
                 int villagerLevel = 5;
 
                 trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                        new ItemStack(Items.GOLD_NUGGET, 3),
+                        new ItemCost(Items.GOLD_NUGGET, 3),
                         stack, 10, 5, 0.0F));
             }
         }
     }
-}

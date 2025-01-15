@@ -1,22 +1,20 @@
 package net.akaneo.fastfooddelight.common.Config;
 
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.config.ModConfig;
 
+import net.neoforged.neoforge.common.ModConfigSpec;
 
 public class FFConfiguration
 {
-    private static final ForgeConfigSpec SPEC;
-    public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
+    public static final ModConfigSpec SPEC;
+    public static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
     private static final FFConfiguration INSTANCE = new FFConfiguration();
-    private static final ForgeConfigSpec.BooleanValue GenerateStructures;
+    private static final ModConfigSpec.BooleanValue GenerateStructures;
 
-    private static final ForgeConfigSpec.IntValue StructureWeight;
+    private static final ModConfigSpec.IntValue StructureWeight;
 
     static
     {
-        BUILDER.push("Fast Food Delight Config");
+        BUILDER.push("Fast Food Delight Unofficial Config");
 
         GenerateStructures = BUILDER
                 .comment("Generate Fast Food Shop Structures in Villages")
@@ -39,11 +37,6 @@ public class FFConfiguration
         return StructureWeight.get();
     }
 
-    public static void setup()
-    {
-
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SPEC, "fastfooddelight.toml");
-    }
     public static FFConfiguration getInstance()
     {
         return INSTANCE;

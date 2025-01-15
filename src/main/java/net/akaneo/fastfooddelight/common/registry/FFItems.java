@@ -1,20 +1,17 @@
 package net.akaneo.fastfooddelight.common.registry;
 
-import net.akaneo.fastfooddelight.FastFoodDelight;
 import net.akaneo.fastfooddelight.common.FFFoodValues;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
-import vectorwing.farmersdelight.FarmersDelight;
+
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 import vectorwing.farmersdelight.common.FoodValues;
 import vectorwing.farmersdelight.common.item.ConsumableItem;
 import vectorwing.farmersdelight.common.item.DrinkableItem;
-import vectorwing.farmersdelight.common.registry.ModBlocks;
 import vectorwing.farmersdelight.common.registry.ModItems;
 
 public class FFItems extends ModItems {
@@ -40,39 +37,39 @@ public class FFItems extends ModItems {
     }
 
     public static final DeferredRegister<Item> ITEMS;
-    public static final RegistryObject<Item> CHECKOUT_MACHINE;
+    public static final DeferredHolder<Item, Item> CHECKOUT_MACHINE;
 
-    public static final RegistryObject<Item> FRIES_BOWL;
-    public static final RegistryObject<Item> CHEESE;
+    public static final DeferredHolder<Item, Item> FRIES_BOWL;
+    public static final DeferredHolder<Item, Item> CHEESE;
 
-    public static final RegistryObject<Item> FRENCH_FRIES;
-    public static final RegistryObject<Item> CARROT_FRIES;
-    public static final RegistryObject<Item> FRIED_ONIONS;
-    public static final RegistryObject<Item> BEET_FRIES;
+    public static final DeferredHolder<Item, Item> FRENCH_FRIES;
+    public static final DeferredHolder<Item, Item> CARROT_FRIES;
+    public static final DeferredHolder<Item, Item> FRIED_ONIONS;
+    public static final DeferredHolder<Item, Item> BEET_FRIES;
 
-    public static final RegistryObject<Item> COD_SANDWICH;
-    public static final RegistryObject<Item> SALMON_SANDWICH;
-    public static final RegistryObject<Item> PORK_SANDWICH;
-    public static final RegistryObject<Item> CHEESEBURGER;
-    public static final RegistryObject<Item> CHICKEN_CHEESE_SANDWICH;
-    public static final RegistryObject<Item> CROQUE_MONSIEUR;
-    public static final RegistryObject<Item> RABBIT_SANDWICH;
-    public static final RegistryObject<Item> CHEESE_WRAP;
-    public static final RegistryObject<Item> CHICKEN_WRAP;
-    public static final RegistryObject<Item> CHICKEN_NUGGETS;
+    public static final DeferredHolder<Item, Item> COD_SANDWICH;
+    public static final DeferredHolder<Item, Item> SALMON_SANDWICH;
+    public static final DeferredHolder<Item, Item> PORK_SANDWICH;
+    public static final DeferredHolder<Item, Item> CHEESEBURGER;
+    public static final DeferredHolder<Item, Item> CHICKEN_CHEESE_SANDWICH;
+    public static final DeferredHolder<Item, Item> CROQUE_MONSIEUR;
+    public static final DeferredHolder<Item, Item> RABBIT_SANDWICH;
+    public static final DeferredHolder<Item, Item> CHEESE_WRAP;
+    public static final DeferredHolder<Item, Item> CHICKEN_WRAP;
+    public static final DeferredHolder<Item, Item> CHICKEN_NUGGETS;
 
 
-    public static final RegistryObject<Item> COLA_SODA;
-    public static final RegistryObject<Item> ORANGE_SODA;
-    public static final RegistryObject<Item> LEMON_SODA;
-    public static final RegistryObject<Item> CREAMING_SODA;
-    public static final RegistryObject<Item> ICED_TEA;
+    public static final DeferredHolder<Item, Item> COLA_SODA;
+    public static final DeferredHolder<Item, Item> ORANGE_SODA;
+    public static final DeferredHolder<Item, Item> LEMON_SODA;
+    public static final DeferredHolder<Item, Item> CREAMING_SODA;
+    public static final DeferredHolder<Item, Item> ICED_TEA;
 
-    public static final RegistryObject<Item> ICE_CREAM;
-    public static final RegistryObject<Item> CHOCOLATE_ICE_CREAM;
-    public static final RegistryObject<Item> SWEET_BERRY_ICE_CREAM;
-    public static final RegistryObject<Item> FRUIT_ICE_CREAM;
-    public static final RegistryObject<Item> APPLE_SAUCE;
+    public static final DeferredHolder<Item, Item> ICE_CREAM;
+    public static final DeferredHolder<Item, Item> CHOCOLATE_ICE_CREAM;
+    public static final DeferredHolder<Item, Item> SWEET_BERRY_ICE_CREAM;
+    public static final DeferredHolder<Item, Item> FRUIT_ICE_CREAM;
+    public static final DeferredHolder<Item, Item> APPLE_SAUCE;
 
 
 
@@ -80,7 +77,7 @@ public class FFItems extends ModItems {
 
     static {
 
-        ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, "fastfooddelight");
+        ITEMS = DeferredRegister.createItems("fastfooddelight");
         CHECKOUT_MACHINE = ITEMS.register("checkout_machine", () -> {
             return new BlockItem((Block) FFBlocks.CHECKOUT_MACHINE.get(), basicItem());
         });
